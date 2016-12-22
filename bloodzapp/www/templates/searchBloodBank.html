@@ -1,0 +1,85 @@
+<ion-view title="Search Blood Bank">
+    <ion-content>
+        <form name="searchBankForm" novalidate >
+            <div ng-if="showdiv">
+                 <div class="list list-inset">
+                    <span class="input-label font">Country <span class="color_r">*</span></span>
+                      <select class="Select-button" name="country" ng-model="searchBank.countryId" ng-change="onCountryChange()" required ng-options="countryItem.id as countryItem.name for countryItem in countryList">
+                        <option value="">Select</option>                       
+                    </select>
+                    <div class="LifeShare-error1" ng-show="searchBankForm.country.$dirty && searchBankForm.country.$invalid">
+                        <span ng-show="searchBankForm.country.$error.required">
+                            <i class="ion-information-circled danger"></i>
+                            Country is required
+                        </span>
+                    </div>
+
+                    <span class="input-label font">State <span class="color_r">*</span></span>
+                     <select name="state" ng-model="searchBank.stateId" ng-disabled="!stateList" ng-change="onStateChange()"  ng-options="stateItem.id as stateItem.name for stateItem in stateList" class="Select-button" required >
+                        <option value="">Select</option>
+                   </select>
+                    <div class="LifeShare-error1" ng-show="searchBankForm.state.$dirty && searchBankForm.state.$invalid">
+                        <span ng-show="searchBankForm.state.$error.required">
+                            <i class="ion-information-circled danger"></i>
+                            State is required
+                        </span>
+                    </div>
+
+                    <span class="input-label font">City <span class="color_r">*</span></span>
+                    <select class="Select-button"  ng-disabled="!cityList" name="city" ng-model="searchBank.cityId"   ng-options="cityItem.id as cityItem.name for cityItem in cityList" required>
+                           <option value="">Select</option>
+                    </select>
+                    <div class="LifeShare-error1" ng-show="searchBankForm.city.$dirty && searchBankForm.city.$invalid">
+                       <span ng-show="searchBankForm.city.$error.required">
+                           <i class="ion-information-circled danger"></i>
+                           City is required
+                       </span>
+                    </div>
+                </div>
+                
+                <center class="padding">
+                <button class="button button-full button-assertive " ng-click="submit()"
+                        ng-disabled="((searchBankForm.city.$dirty && searchBankForm.city.$invalid)||
+                                      (searchBankForm.city.$pristine && searchBankForm.city.$invalid)||
+                                      (searchBankForm.area.$dirty && searchBankForm.area.$invalid)||
+                                      (searchBankForm.area.$pristine && searchBankForm.area.$invalid)||
+                                      (searchBankForm.country.$dirty && searchBankForm.country.$invalid)||
+                                      (searchBankForm.country.$pristine && searchBankForm.country.$invalid)||
+                                      (searchBankForm.state.$dirty && searchBankForm.state.$invalid)||
+                                      (searchBankForm.state.$pristine && searchBankForm.state.$invalid))">
+                    Search
+                </button>
+            </center>
+            </div>
+        </form>
+        <div class="card list" ng-if="!showdiv">
+            <a class="button button-full button-assertive " ng-click="BackList()"  >
+                        Back
+            </a>
+            <ion-item ng-repeat="Item in bloodBankList">
+                <div class="row icon-left">
+                     <div>
+                        <i class=" button-icon ion-ios-home assertive padding font_40" style="margin-right:10px"></i> 
+                    </div>
+                    <div ng-if="Item.NAME != null" class="col col-75">
+                        {{Item.NAME}}
+                    </div>
+                    <div class="col col-25" ng-if="Item.PH_NO != null">
+                        <a ng-click="callBloodBank({{Item.PH_NO}})"><i class="icon ion-ios-telephone balanced font_30"></i></a>
+                    </div>
+                </div>  
+                <div>
+                    <div class="row ">
+                        <h4 class="font col-50" ng-if ="Item.AREA != null">{{Item.AREA}}></h4>
+                        <h4 class="font col-50" ng-if ="Item.CITY != null">{{Item.CITY}}</h4>
+                    </div> 
+                </div>
+            </ion-item>
+            <br>  
+            <div ng-if='bloodBankList == null'>
+                <center> <h4 class="color_b3"> No records available.</h4></center>
+            </div>
+            
+        </div>        
+    </ion-content>
+</ion-view>

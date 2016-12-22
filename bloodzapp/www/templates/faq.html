@@ -1,0 +1,24 @@
+<ion-view title="FAQ">
+    <ion-header-bar class="bar-assertive">
+      <h1 class="title">FAQ</h1>
+    </ion-header-bar>
+
+    <ion-content>
+
+      <ion-list>
+          <div class="card">
+            <ion-item ng-repeat="item in items" class="item item-text-wrap">
+                <h2>{{ item.title }}</h2>
+                <div ng-click="toggleItem(item)" class="item-expand-footer" style="color:#b30000">
+                    <i ng-class="isItemShown(item) ? 'ion-ios-minus-outline' : 'ion-ios-plus-outline'" style="color:#b30000"></i>
+                  {{ isGroupShown(item) ? 'Less' : 'Ans' }}
+                </div>
+                <div ng-class="isItemShown(item) ? 'item-expand active' : 'item-expand inactive'">          
+                    <p>{{ item.text }}</p>
+                </div>
+            </ion-item>
+          </div>
+      </ion-list>
+
+    </ion-content>
+</ion-view>

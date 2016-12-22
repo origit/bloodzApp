@@ -1,0 +1,271 @@
+<ion-view>
+    <ion-content >
+        <br/>
+        <a href="#/welcome">
+            <i class="icon button-icon ion-ios-arrow-back button-left assertive padding"></i> 
+            <center>
+                <h3 class="color_red">Don't have Account?</h3>
+                <h4>Follow few steps and you are done!</h4>
+            </center>        
+        </a>
+        <form name="registerForm" novalidate="">
+            <div ng-if="basicdiv">
+                <div class="list list-inset">     
+                    
+                    <span class="input-label" style="font-size: 12px">
+                        Name 
+                        <span class="color_r">*</span>                            
+                    </span>
+                    <label class="item item-input">
+                        <input type="text" name="username" ng-trim="true" ng-pattern="/^[a-zA-Z\s]+$/i" ng-model="signUp.username" ng-minlength="3"  ng-maxlength="40" placeholder="Enter Name" required>
+                    </label>
+
+                    <div class="LifeShare-error1" ng-show="registerForm.username.$dirty && registerForm.username.$invalid">
+                        <span ng-show="registerForm.username.$error.required">
+                            <i class="ion-information-circled assertive"></i>
+                           Name is required.
+                        </span>                       
+                        <span ng-show="registerForm.username.$error.pattern">
+                            <i class="ion-information-circled assertive"></i>
+                            Only Alphabets are allowed <br/>
+                        </span> 
+                        <span ng-show="registerForm.username.$error.minlength">
+                            <i class="ion-information-circled assertive"></i>
+                            Name must be atleast 3 characters. 
+                        </span>
+                        <span ng-show="registerForm.username.$error.maxlength">
+                            <i class="ion-information-circled assertive"></i>
+                            Name must not exceed 40 characters.
+                        </span>
+                    </div>
+                    
+                    <span class="input-label" style="font-size: 12px">
+                        Email 
+                        <span class="color_r">*</span>                            
+                    </span>
+                        <label class="item item-input">
+                            <input type="email"  ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" name="email" ng-model="signUp.email" placeholder="Enter Email" required>
+                        </label>
+
+                    <div class="LifeShare-error1" ng-show="registerForm.email.$dirty && registerForm.email.$invalid">
+                        <span ng-show="registerForm.email.$error.required">
+                            <i class="ion-information-circled danger"></i>
+                            Email is required.
+                        </span>
+                        
+                        <span ng-show="registerForm.email.$error.pattern">
+                            <i class="ion-information-circled danger"></i>
+                           Please enter a valid email address.
+                        </span> 
+                    </div>
+                    
+                    <span class="input-label font">Mobile No <span class="color_r">*</span></span>
+                     <label class="item item-input">
+                         <input type="tel" name="ph_no" ng-pattern="/^\d+$/" ng-model="signUp.ph_no" ng-minlength="8" ng-maxlength="15" placeholder="Enter Mobile No." required autofocus>
+                     </label>
+
+                     <div class="LifeShare-error1" ng-show="registerForm.ph_no.$dirty && registerForm.ph_no.$invalid">
+                        <span ng-show="registerForm.ph_no.$error.required">
+                            <i class="ion-information-circled danger"></i>
+                            Mobile number required.
+                        </span>                    
+                        <span ng-show="registerForm.ph_no.$error.maxlength">
+                            <i class="ion-information-circled danger"></i>
+                            Mobile number must not exceed 15 digits.<br/>                          
+                        </span>
+                        <span ng-show="registerForm.ph_no.$error.minlength">
+                            <i class="ion-information-circled danger"></i>
+                            Mobile number must be least 8 digits. <br/>                         
+                        </span>
+                         <span ng-show="registerForm.ph_no.$error.pattern"> 
+                             <i class="ion-information-circled danger"></i>
+                             Invalid Number                          
+                        </span>
+                     </div>
+                   
+                   <span class="input-label" style="font-size: 12px">Blood Group <span class="color_r">*</span></span>
+                    <select class="Select-button" ng-model="signUp.bg" name="bg" required>
+                        <option value="">Select</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B+">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                    </select> 
+                    <div class="LifeShare-error1" ng-show="registerForm.bg.$dirty && registerForm.bg.$invalid">
+                        <span ng-show="registerForm.bg.$error.required">
+                            <i class="ion-information-circled danger"></i>
+                            Blood Group is required.
+                        </span>
+                    </div>
+                    
+                    <span class="input-label" style="font-size: 12px">Gender <span class="color_r">*</span></span>
+                    <select class="Select-button" ng-model="signUp.gender" name="gender" required>
+                        <option value="">Select</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Others</option>
+                    </select>
+                    <div class="LifeShare-error1" ng-show="registerForm.gender.$dirty && registerForm.gender.$invalid">
+                        <span ng-show="registerForm.gender.$error.required">
+                            <i class="ion-information-circled danger"></i>
+                            Gender is required
+                        </span>
+                    </div>
+                   
+                    <br/>
+                    <button type="button" class="button button-block button-assertive"  ng-click="AddressBtn()"
+                        ng-disabled="((registerForm.username.$dirty && registerForm.username.$invalid)||
+                            (registerForm.username.$pristine && registerForm.username.$invalid)||
+                            (registerForm.email.$dirty && registerForm.email.$invalid)||
+                            (registerForm.email.$pristine && registerForm.email.$invalid)||
+                            (registerForm.ph_no.$dirty && registerForm.ph_no.$invalid)||
+                            (registerForm.ph_no.$pristine && registerForm.ph_no.$invalid)||
+                            (registerForm.bg.$dirty && registerForm.bg.$invalid)||
+                            (registerForm.bg.$pristine && registerForm.bg.$invalid)||
+                            (registerForm.gender.$dirty && registerForm.gender.$invalid)||
+                            (registerForm.gender.$pristine && registerForm.gender.$invalid)
+                            )">
+                             Next
+                    </button> 
+                   
+                </div>
+            </div>            
+        
+        
+            <div ng-if="addressdiv"> 
+                <div class="list list-inset"> 
+                    <span class="input-label" style="font-size: 12px">Country <span class="color_r">*</span></span>
+                    <select class="Select-button" name="country" ng-model="signUp.countryId" ng-change="onCountryChange()" required ng-options="countryItem.id as countryItem.name for countryItem in countryList">
+                        <option value="">Select</option>                       
+                    </select>
+                    <div class="LifeShare-error1" ng-show="registerForm.country.$dirty && registerForm.country.$invalid">
+                        <span ng-show="registerForm.country.$error.required">
+                            <i class="ion-information-circled danger"></i>
+                            Country is required
+                        </span>
+                    </div>
+                    
+                    <span class="input-label" style="font-size: 12px">State <span class="color_r">*</span></span>
+                    <select name="state" ng-model="signUp.stateId" ng-disabled="!stateList" ng-change="onStateChange()"  ng-options="stateItem.id as stateItem.name for stateItem in stateList" class="Select-button" required >
+                        <option value="">Select</option>
+                   </select>                   
+                    <div class="LifeShare-error1" ng-show="registerForm.state.$dirty && registerForm.state.$invalid">
+                        <span ng-show="registerForm.state.$error.required">
+                            <i class="ion-information-circled danger"></i>
+                            State is required
+                        </span>
+                    </div>
+                    
+                    <span class="input-label" style="font-size: 12px">City <span class="color_r">*</span></span>
+                    <select class="Select-button"  ng-disabled="!cityList" name="city" ng-model="signUp.cityId"   ng-options="cityItem.id as cityItem.name for cityItem in cityList" required>
+                           <option value="">Select</option>
+                    </select>                 
+                    <div class="LifeShare-error1" ng-show="myForm.city.$dirty && myForm.city.$invalid">
+                        <span ng-show="myForm.city.$error.required">
+                            <i class="ion-information-circled danger"></i>
+                            City is required
+                        </span>
+                    </div>
+                    <br/>
+                
+                    <button type="button" class="button button-block button-assertive"  ng-click="regdivbtn()"
+                            ng-disabled="((registerForm.country.$dirty && registerForm.country.$invalid)||
+                                                                      (registerForm.country.$pristine && registerForm.country.$invalid)||
+                                                                      (registerForm.state.$dirty && registerForm.state.$invalid)||
+                                                                      (registerForm.state.$pristine && registerForm.state.$invalid)||
+                                                                      (registerForm.city.$dirty && registerForm.city.$invalid)||
+                                                                      (registerForm.city.$pristine && registerForm.city.$invalid)
+                                                                      
+                                                                      )">
+                        Next
+                    </button> 
+                    <button type="button" class="button button-block button-assertive"  ng-click="backBasicbtn()"
+                         >
+                       Back
+                    </button> 
+                </div>
+            </div>
+            <div ng-if="regdiv">
+                <div class="list list-inset">
+                    <span class="input-label" style="font-size: 12px">User ID <span class="color_r">*</span></span>
+                     <label class="item item-input">
+                         {{signUp.ph_no}}
+                     </label>
+                    <span style="font-size: 14px;color:#aaaaaa;">*Your Mobile number is your login Id.</span>
+
+                    <span class="input-label" style="font-size: 12px">New Password <span class="color_r">*</span></span>
+                    <label class="item item-input">
+                        <input type="password" name="password" ng-model="signUp.password" ng-minlength="5" ng-maxlength="25"  placeholder="Enter New Password " required>
+                    </label>
+
+                    <div class="LifeShare-error1" ng-show="registerForm.password.$dirty && registerForm.password.$invalid">
+                        <span ng-show="registerForm.password.$error.required">
+                            <i class="ion-information-circled danger"></i>
+                            New Password is required
+                        </span>                    
+                        <span ng-show="registerForm.password.$error.maxlength">
+                             <i class="ion-information-circled danger"></i>
+                             New Password  number must not exceed 25 digits
+                             <br/>
+                         </span>
+                        <span ng-show="registerForm.password.$error.minlength">
+                             <i class="ion-information-circled danger"></i>
+                             New Password  number must be 5 digits
+                             <br/>
+                        </span>
+                    </div>
+                    
+                    <span class="input-label" style="font-size: 12px">Confirm Password <span class="color_r">*</span></span>
+                    <label class="item item-input">
+                        <input type="password" name="confirm_pass" ng-model="signUp.confirm_pass"  data-password-verify="signUp.password" ng-minlength="5" ng-maxlength="25" placeholder="Enter Confirm Password " required>
+                    </label>
+
+                    <div class="LifeShare-error1" ng-show="registerForm.confirm_pass.$dirty && registerForm.confirm_pass.$invalid">
+                        <span ng-show="registerForm.confirm_pass.$error.required">
+                            <i class="ion-information-circled danger"></i>
+                           Confirm Password is required
+                        </span>                    
+                        <span ng-show="registerForm.confirm_pass.$error.maxlength">
+                             <i class="ion-information-circled danger"></i>
+                             Confirm Password  number must not exceed 25 digits
+                             <br/>
+                         </span>
+                        <span ng-show="registerForm.confirm_pass.$error.minlength">
+                             <i class="ion-information-circled danger"></i>
+                             Confirm Password  number must be 5 digits
+                             <br/>
+                        </span>
+                        <span ng-show="registerForm.confirm_pass.$error.passwordVerify">
+                             <i class="ion-information-circled danger"></i>
+                             Confirm Password must be same as new password.
+                        </span>
+                    </div>
+                    <br/>
+                   
+                    <ion-toggle ng-model="signUp.toggle" ion-toggle-text="Yes;No" toggle-class="toggle-balanced">Are you a Donor?</ion-toggle>
+                    
+                    <button type="button" class="button button-block button-assertive"  ng-click="submit()"
+                       ng-disabled="((registerForm.confirm_pass.$dirty && registerForm.confirm_pass.$invalid)||
+                                    (registerForm.confirm_pass.$pristine && registerForm.confirm_pass.$invalid)||
+                                    (registerForm.password.$dirty && registerForm.password.$invalid)||
+                                    (registerForm.password.$pristine && registerForm.password.$invalid)
+                                    
+                                    )">
+                        Register
+                    </button> 
+                    
+                    <button type="button" class="button button-block button-assertive"  ng-click="backregdivbtn()"
+                         >
+                       Back
+                    </button> 
+                </div>
+            </div>
+        </form>       
+        
+    </ion-content>
+</ion-view>
+                    

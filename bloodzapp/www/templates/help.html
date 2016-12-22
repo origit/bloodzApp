@@ -1,0 +1,45 @@
+<ion-view title="Help">
+    <ion-content>
+        <br/><br/>
+        <center><h3 class=" subheader color_red"> Keep in touch with us..</h3></center>
+        <form name="message_form" novalidate>
+            <div class="list list-inset">
+                <span class="input-label font">Have a question? <span class="color_r">*</span></span>
+                <label class="item item-input padding">
+                    <textarea rows="8" cols="50" ng-model="sendmessage.message" required ng-trim="true" ng-minlength="10"  ng-maxlength="200" name="message" placeholder="Enter message.."></textarea> 
+                </label>
+
+                <div class="LifeShare-error1" ng-show="message_form.message.$dirty && message_form.message.$invalid">
+                    <span ng-show="message_form.message.$error.required">
+                       <i class="ion-information-circled assertive"></i>
+                       Message is required.
+                    </span> 
+                    <span ng-show="message_form.message.$error.minlength">
+                        <i class="ion-information-circled assertive"></i>
+                        Message must be atleast 10 characters. 
+                    </span>
+                    <span ng-show="message_form.message.$error.maxlength">
+                        <i class="ion-information-circled assertive"></i>
+                        Message must not exceed 200 characters.
+                    </span>   
+                </div>
+            </div>
+            <div class="padding">
+                <center>
+                    <button class="button button-full button-assertive"
+                               ng-disabled="((
+                                            message_form.message.$dirty && message_form.message.$invalid)||
+                                            (message_form.message.$pristine && message_form.message.$invalid)
+                                                )"
+                            
+                            ng-click="submit()">
+                        Submit
+                    </button>
+                 </center>
+            </div>
+            
+            
+            
+        </form>       
+    </ion-content>
+</ion-view>

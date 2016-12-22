@@ -1,0 +1,55 @@
+<ion-side-menus enable-menu-with-back-views="false">
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar bar-assertive">
+             <ion-nav-back-button></ion-nav-back-button>
+            <ion-nav-buttons>
+                <button class="button button-icon ion-navicon light" menu-toggle="left"></button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view name="menuContent"> </ion-nav-view>
+    </ion-side-menu-content>
+    
+    <ion-side-menu side="left">
+        <ion-content> 
+            
+            <ion-list>
+                <ion-item>
+                    <center>
+                        <img src="img/logo/logo.PNG"  alt="" width="100px" height="50px"/>
+                    </center>
+                </ion-item>
+                <ion-item class="item-avatar item-icon-right stable-bg menu_border"> 
+                    <img ng-if="GENDER == 'Male'" src="img/boy-avatar.png" class="menu_avatar" width="25px" height="25px;">
+                    <img ng-if="GENDER == 'Female'" src="img/girl-avatar.png" class="menu_avatar" width="25px" height="25px;">
+                    <h3 class="color_w"><b>{{USERNAME}}</b></h3> 
+                    <p><b class="color_w">Blood Group :</b> <span  class="color_w"><b>{{USERBLODGP}}</b></span> </p>             
+                    <i class="icon ion-ios-arrow-forward stable" ui-sref="app.profile" menu-close ></i>
+                </ion-item>                        
+                <ion-item menu-close href="#/app/home" class="item-borderless" >
+                    <i class="button-icon icon ion-ios-home assertive home_ions" ></i> Dashboard
+                </ion-item>                   
+                <ion-item menu-close href="#/app/searchDonor" class="item-borderless">
+                    <i class="button-icon icon ion-ios-people assertive home_ions" ></i> Search Donor
+                </ion-item>
+                <ion-item menu-close href="#/app/searchBloodBank" class="item-borderless">
+                     <i class=" button-icon icon ion-medkit  assertive home_ions" ></i> Search Blood Bank
+                </ion-item>
+                <ion-item menu-close href="#/app/myDonor" class="item-borderless ">
+                    <i class=" button-icon icon ion-ios-bookmarks assertive home_ions "  ></i> My Donor
+                </ion-item>
+                <ion-item menu-close href="#/app/requestBlood" class="item-borderless">
+                     <i class=" button-icon icon ion-ios-chatboxes assertive home_ions" ></i> Request Blood
+                </ion-item>
+                <ion-item menu-close href="#/app/about" class="item-borderless">
+                     <i class=" button-icon icon ion-ios-world assertive home_ions" ></i> About
+                </ion-item>
+                <ion-item menu-close href="#/app/faq" class="item-borderless">
+                     <i class=" button-icon icon ion-ios-help assertive home_ions"></i> FAQ
+                </ion-item>
+                <ion-item menu-close href="#/app/help" class="item-borderless">
+                     <i class=" button-icon icon ion-android-contacts assertive home_ions" ></i> Help
+                </ion-item>
+            </ion-list>
+        </ion-content>
+    </ion-side-menu>
+</ion-side-menus>

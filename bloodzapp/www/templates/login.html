@@ -1,0 +1,91 @@
+<ion-view view-title="Login">
+    <ion-content  padding="true" class="login">     
+        <a href="#/welcome" class="padding_5">
+            <i class="icon button-icon ion-ios-arrow-back light"></i>
+        </a>
+       
+        <div class="text-center">
+            <i class="icon ion-ios-world icon_white"></i>
+            <h4 class="color_w"><strong>Welcome to  BloodzApp</strong> </h4>
+            <p class=" font_14 color_w">"Excuses never save life , BLOOD DONATION does."</p>
+        </div><br/>        
+        <form name="loginForm" novalidate="" id="login">
+            <div class="list">
+                <span class="input-label font color_w" >
+                    Mobile No <span class="color_w">*</span>                        
+                </span>
+                <label class="item item-input">
+                    <input type="tel" name="username" ng-pattern="/^[0-9\s]+$/"  ng-model="login.username" ng-minlength="8" ng-maxlength="15" disallowSpaces placeholder="Enter Mobile No " required autofocus>
+                </label>
+                
+                <div class="LifeShare-error" ng-show="loginForm.username.$dirty && loginForm.username.$invalid">
+                    <span ng-show="loginForm.username.$error.required">
+                        <i class="ion-information-circled danger"></i>
+                        Mobile number required
+                    </span>                    
+                    <span ng-show="loginForm.username.$error.maxlength">
+                        <i class="ion-information-circled danger"></i>
+                        Mobile number must not exceed 15 digits
+                        <br/>
+                    </span>
+                    <span ng-show="loginForm.username.$error.onlyDigits">
+                        <i class="ion-information-circled danger"></i>
+                         Must be digits
+                        <br/>
+                    </span>
+                    <span ng-show="loginForm.username.$error.minlength">
+                        <i class="ion-information-circled danger"></i>
+                        Mobile number must be 8 digitsn
+                        <br/>
+                    </span>
+                    <span ng-show="loginForm.username.$error.pattern">
+                        <i class="ion-information-circled danger"></i>
+                        Only digits are allowed.
+                        <br/>
+                    </span>
+                </div>
+                
+                <span class="input-label font color_w" >
+                    Password
+                    <span class="color_w">*</span>                        
+                </span>
+                
+                <label class="item item-input">
+                    <input type="password" name="password" ng-model="login.password" ng-minlength="5" ng-maxlength="25" placeholder="Enter Password" required autofocus>
+               </label>
+                
+                <div class="LifeShare-error" ng-show="loginForm.password.$dirty && loginForm.password.$invalid">
+                    <span ng-show="loginForm.password.$error.required"> 
+                        <i class="ion-information-circled danger"></i>
+                        Password is required
+                        <br/>
+                    </span>
+                    <span ng-show="loginForm.password.$error.minlength">
+                         <i class="ion-information-circled danger"></i>
+                        Password must be longer than 5 characters
+                         <br/>
+                    </span>
+                    <span ng-show="loginForm.password.$error.maxlength">
+                        <i class="ion-information-circled danger"></i>
+                        Password must not exceed 25 digits
+                        <br/>
+                    </span>
+                </div>
+                
+                <div class="padding_pass">
+                    <a href="#/forgotPassword" class="color_w"> Forgot Password ?</a>
+                </div>
+                
+                <div class="padding">
+                    <button type="button" class="button button-block button-light"  ng-click="submit()" 
+                            ng-disabled="((loginForm.username.$dirty && loginForm.username.$invalid)||
+                                                          (loginForm.username.$pristine && loginForm.username.$invalid) ||
+                                                          (loginForm.password.$dirty && loginForm.password.$invalid)||
+                                                          (loginForm.password.$pristine && loginForm.password.$invalid))">
+                                          <b> Login </b>
+                    </button>                    
+                </div>
+            </div> 
+        </form>  
+    </ion-content>   
+</ion-view>

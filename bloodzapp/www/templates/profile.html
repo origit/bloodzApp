@@ -1,0 +1,88 @@
+<ion-view title="Profile Details" ng-init="profileCtrl();">
+    <ion-nav-buttons side='right'>
+        <button class="button button-icon button-assertive ion-android-more-vertical" ng-click="popover.show($event)" ></button>             
+    </ion-nav-buttons>
+    <ion-content  has-header="true">     
+      <div id="content">
+          <div id="profile-info">
+                <span id="profile-bloog-group">
+                   <b class="assertive"> {{ bg}} </b>
+                </span>
+                <img  id="profile-image" ng-src="{{image}}" >                
+                <h3 id="profile-name" >{{ name}}</h3>
+                <span id="profile-email">{{ email}}</span>
+                <br> 
+                <span class='text-left' id="profile-edit" >
+                    <a href="#/app/editProfile" >                                    
+                        <i class="icon ion-compose assertive padding font_30 "></i>                   
+                    </a>
+                </span>
+                <span id="profile-phone" >{{ph_no}}</span> 
+                <span id="profile-bloog-group">
+                   <b class="assertive"> {{ bg}} </b>
+                </span>  
+        </div>       
+      </div>
+
+        <div class="card">
+                <div class="item item-divider menu_border">
+                    <center class="color_red"><b>Address Details</b></center>                   
+                </div> 
+                <div ng-if="address != null" class="item item-text-wrap">
+                    <i class="ion-ios-home assertive padding font_20 "></i>
+                    {{ address}}
+                </div>
+            
+                <div ng-if="area != null" class="item item-input">
+                    <i class="ion-ios-bookmarks assertive padding font_20" ></i>
+                    {{area}}
+                </div>
+            
+                 <div ng-if="city != null" class="item item-input ">
+                    <i class="ion-ios-location assertive padding font_20 " ></i>
+                    {{city}}
+                </div>
+            
+                <div ng-if="state != null"  class="item item-input ">
+                    <i class="ion ion-ios-world assertive padding font_20" ></i>
+                    {{state}}
+                </div>
+            
+                <div ng-if="country != null"  class="item item-input ">
+                    <i class="ion ion-ios-browsers assertive padding font_20" ></i>
+                    {{country}}
+                </div>
+               
+               <div ng-if="isdonor != null"  class="item item-input ">
+                    <i class="ion ion-person-stalker assertive padding font_20" ></i>
+                    Are you Donor? {{isdonor}}
+                </div>
+                <div ng-if="joindate != null"  class="item item-input ">
+                    <i class="ion ion-calendar assertive padding font_20" ></i>
+                    Joined on :  {{joindate}}
+                </div>
+
+                <!--a class="item" href="/#/app/editProfile">
+                         Edit Profile
+                        </a-->
+        </div> 
+        
+        <br>
+        <div class="list-inset">
+            <a class="button button-full button-stable" href="#/app/changePassword">             
+             Change Password
+             </a>
+        </div>
+        <script id="templates/popover.html" type="text/ng-template">
+                <ion-popover-view style="margin-top:10px;height:60px">
+                  <ion-content>
+                    <div class="list" ng-click="hidepopover();"> 
+                        <a class="item item-borderless" ng-click="signOut();">
+                         Log Out
+                        </a>                         
+                    </div>
+                  </ion-content>
+                </ion-popover-view>
+        </script>
+    </ion-content>      
+</ion-view>

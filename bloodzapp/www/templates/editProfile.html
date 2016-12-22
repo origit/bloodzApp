@@ -1,0 +1,230 @@
+<ion-view title="Edit Profile">
+    <ion-header-bar class="bar-assertive">
+      <h1 class="title">Edit Profile</h1>
+    </ion-header-bar> 
+     <ion-content has-header="true">
+                <div class="item item-divider item-icon-right menu_border">
+                    <center class="color_red"><b>Profile Details</b></center>
+                </div> 
+                <form name="profileForm" novalidate="">
+                    <div>
+                        <label class="item item-input">
+                             <i class="icon ion-ios-person assertive padding font_20" ></i>
+                              <input type="text" name="name" ng-trim="true" ng-pattern="/^[a-zA-Z\s]+$/i" ng-model="editProfile.name" ng-minlength="3"  ng-maxlength="40" placeholder="Enter Name" required>
+                         </label>
+                        <div class="LifeShare-error1" ng-show="profileForm.name.$dirty && profileForm.name.$invalid">
+                        <span ng-show="profileForm.name.$error.required">
+                            <i class="ion-information-circled assertive"></i>
+                           Name is required.
+                        </span>                       
+                        <span ng-show="profileForm.name.$error.pattern">
+                            <i class="ion-information-circled assertive"></i>
+                            Only Alphabets are allowed <br/>
+                        </span> 
+                        <span ng-show="profileForm.name.$error.minlength">
+                            <i class="ion-information-circled assertive"></i>
+                            Name must be atleast 3 characters. 
+                        </span>
+                        <span ng-show="profileForm.name.$error.maxlength">
+                            <i class="ion-information-circled assertive"></i>
+                            Name must not exceed 40 characters.
+                        </span>
+                    </div>
+                   
+                         <label class="item item-input">
+                             <i class="icon ion-ios-email assertive padding font_20" ></i>
+                             <input type="email" name="email"  ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/" ng-model="editProfile.email" placeholder="Enter Email" disallowSpaces required>
+                         </label>
+                        <div class="LifeShare-error1" ng-show="profileForm.email.$dirty && profileForm.email.$invalid">
+                            <span ng-show="profileForm.email.$error.required">
+                                <i class="ion-information-circled danger"></i>
+                                Email is required.
+                            </span>
+
+                            <span ng-show="profileForm.email.$error.pattern">
+                                <i class="ion-information-circled danger"></i>
+                               Please enter a valid email address.
+                            </span> 
+                        </div>
+
+                         <label class="item item-input">
+                             <i class="icon ion-ios-telephone assertive padding font_20"></i>
+                             <input type="tel" name="ph_no" ng-pattern="/^\d+$/" ng-model="editProfile.ph_no" ng-minlength="8" ng-maxlength="15" placeholder="Enter Mobile No." required autofocus>
+                         </label>
+                        <div class="LifeShare-error1" ng-show="profileForm.ph_no.$dirty && profileForm.ph_no.$invalid">
+                        <span ng-show="profileForm.ph_no.$error.required">
+                            <i class="ion-information-circled danger"></i>
+                            Mobile number required.
+                        </span>                    
+                        <span ng-show="profileForm.ph_no.$error.maxlength">
+                            <i class="ion-information-circled danger"></i>
+                            Mobile number must not exceed 15 digits.<br/>                          
+                        </span>
+                        <span ng-show="profileForm.ph_no.$error.minlength">
+                            <i class="ion-information-circled danger"></i>
+                            Mobile number must be least 8 digits. <br/>                         
+                        </span>
+                         <span ng-show="profileForm.ph_no.$error.pattern"> 
+                             <i class="ion-information-circled danger"></i>
+                             Invalid Number                          
+                        </span>
+                     </div>
+                        
+                    <div style="width:100%;height:50px;border-bottom: 1px solid #DCDCDC">
+                        <span class="" style="margin-left: 13px;width: 12%">
+                            <i class="icon ion-waterdrop assertive padding font_20"></i> 
+                        </span>
+
+                        <select class="Select-button1" name="bg" ng-model="editProfile.bg" required style="width:85%;height:50px;border-bottom:1px solid #DCDCDC">
+                            <option value="">Blood group</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>                     
+                    </div>
+                        
+                    <div class="LifeShare-error1" ng-show="profileForm.bg.$dirty && profileForm.bg.$invalid">
+                        <span ng-show="profileForm.bg.$error.required">
+                            <i class="ion-information-circled danger"></i>
+                            Blood Group is required.
+                        </span>
+                    </div>
+                        
+                    <div style="width:100%;height:auto;border-bottom:1px solid #DCDCDC">
+                        <span class="" style="margin-left: 13px;width: 12%;">
+                            <i class="icon ion-android-contact assertive padding font_20"></i> 
+                        </span>
+
+                        <select class="Select-button1" ng-model="editProfile.gender" name="gender" style="width:84%;height:50px;border-bottom:1px solid #DCDCDC" required>
+                            <option value="">Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Others</option>
+                        </select>
+                         <div class="LifeShare-error1" ng-show="profileForm.gender.$dirty && profileForm.gender.$invalid">
+                            <span ng-show="profileForm.gender.$error.required">
+                                <i class="ion-information-circled danger"></i>
+                                Gender is required
+                            </span>
+                        </div>
+                    </div>                  
+                   <div class="item item-divider item-icon-right">
+                        <center class="color_red"><b>Address Details</b></center>
+                    </div>
+                        
+                    <label class="item item-input">
+                        <i class="ion-ios-home assertive padding font_20" ></i>
+                        <textarea rows="4" cols="50" ng-minlength="5" ng-maxlength="200"  name="address" ng-model="editProfile.address" placeholder="Enter Address" ></textarea>
+                    </label>
+                    <div class="LifeShare-error1" ng-show="profileForm.address.$dirty && profileForm.address.$invalid">
+                        <span ng-show="profileForm.address.$error.maxlength">
+                            <i class="ion-information-circled danger"></i>
+                            Address must not exceed 200.<br/>                          
+                        </span>
+                   </div>                        
+                   
+                    <label class="item item-input">
+                        <i class="icon ion-android-locate  assertive padding font_20"></i>
+                        <input type="text" name="area" ng-minlength="3" ng-maxlength="100"  ng-model="editProfile.area" placeholder="Enter Area">
+                    </label>                   
+                    <div class="LifeShare-error1" ng-show="profileForm.area.$dirty && profileForm.area.$invalid">                        
+                        <span ng-show="profileForm.area.$error.maxlength">
+                            <i class="ion-information-circled danger"></i>
+                            Area must not exceed 100.<br/>                          
+                        </span>
+                    </div>
+                   
+                        
+                    <div style="width:100%;height:auto;border-bottom:1px solid #DCDCDC;">
+                         <span class="" style="margin-left: 15px;width: 12%;">
+                             <i class="icon ion-ios-world assertive padding font_20"></i> 
+                         </span>
+                        <select class="Select-button1" name="country" style="width:84%;height:50px;border-bottom:1px solid #DCDCDC" ng-model="editProfile.countryId" ng-change="onCountryChange()" ng-init="onCountryChange()" required ng-options="countryItem.id as countryItem.name for countryItem in countryList">
+                             <option value="">Select</option>                       
+                         </select>                          
+
+                         <div class="LifeShare-error1" ng-show="profileForm.country.$dirty && profileForm.country.$invalid">
+                             <span ng-show="profileForm.country.$error.required">
+                                 <i class="ion-information-circled danger"></i>
+                                 Country is required. 
+                             </span>
+                         </div>
+                    </div>
+                        
+
+                    <div style="width:100%;height:auto;border-bottom:1px solid #DCDCDC;">
+                        <span class="" style="margin-left: 15px;width: 12%;">
+                            <i class="icon ion-ios-navigate assertive padding font_20"></i> 
+                        </span>
+                        <select name="state" ng-model="editProfile.stateId" ng-disabled="!stateList" ng-change="onStateChange()" ng-init="onStateChange()" style="width:84%;height:50px;border-bottom:1px solid #DCDCDC"  ng-options="stateItem.id as stateItem.name for stateItem in stateList" class="Select-button1" required >
+                            <option value="">Select</option>
+                        </select> 
+                        <div class="LifeShare-error1" ng-show="profileForm.state.$dirty && profileForm.state.$invalid">
+                            <span ng-show="profileForm.state.$error.required">
+                                <i class="ion-information-circled danger"></i>
+                                State is required.<br>
+                            </span>
+                        </div>
+                     </div>
+                        
+                    <div style="width:100%;height:auto;border-bottom:1px solid #DCDCDC;">
+                        <span class="" style="margin-left: 17px;width: 12%;">
+                            <i class="icon ion-ios-location assertive padding font_20"></i> 
+                        </span>
+                        <select class="Select-button1"  ng-disabled="!cityList" name="city" ng-model="editProfile.cityId"   ng-options="cityItem.id as cityItem.name for cityItem in cityList" style="width:85%;height:50px;border-bottom:1px solid #DCDCDC" required>
+                                <option value="">Select</option>
+                        </select>                             
+                        <div class="LifeShare-error1" ng-show="profileForm.city.$dirty && profileForm.city.$invalid">
+                            <span ng-show="profileForm.city.$error.required">
+                                <i class="ion-information-circled danger"></i>
+                                City is required.
+                            </span>
+                        </div>   
+                    </div>
+                        
+                    <label class="item item-input">
+                        <i class="icon ion-android-list assertive padding font_20"></i>
+                        <input type="text" name="zipcode" ng-minlength="6" ng-maxlength="6"  ng-model="editProfile.zipcode" placeholder="Enter Pincode/Zipcode">
+                    </label>                   
+                    <div class="LifeShare-error1" ng-show="profileForm.zipcode.$dirty && profileForm.zipcode.$invalid">                        
+                        <span ng-show="profileForm.zipcode.$error.maxlength">
+                            <i class="ion-information-circled danger"></i>
+                            Zipcode must not exceed 6.<br/>                          
+                        </span>
+                    </div>
+                        
+                    <ion-toggle ng-checked="editProfile.checked" ng-model="editProfile.toggle" ion-toggle-text="Yes;No" toggle-class="toggle-balanced">Are you a Donor?</ion-toggle>
+                         
+               </div>
+                <br/><br/>
+                <button type="button" class="button button-block button-assertive"  ng-click="submit()"
+                ng-disabled="((profileForm.username.$dirty && profileForm.username.$invalid)||
+                    (profileForm.username.$pristine && profileForm.username.$invalid)||
+                    (profileForm.email.$dirty && profileForm.email.$invalid)||
+                    (profileForm.email.$pristine && profileForm.email.$invalid)||
+                    (profileForm.ph_no.$dirty && profileForm.ph_no.$invalid)||
+                    (profileForm.ph_no.$pristine && profileForm.ph_no.$invalid)||
+                    (profileForm.bg.$dirty && profileForm.bg.$invalid)||
+                    (profileForm.bg.$pristine && profileForm.bg.$invalid)||
+                    (profileForm.gender.$dirty && profileForm.gender.$invalid)||
+                    (profileForm.gender.$pristine && profileForm.gender.$invalid)||
+                    (profileForm.country.$dirty && profileForm.country.$invalid)||
+                    (profileForm.country.$pristine && profileForm.country.$invalid)||
+                    (profileForm.state.$dirty && profileForm.state.$invalid)||
+                    (profileForm.state.$pristine && profileForm.state.$invalid)||
+                    (profileForm.city.$dirty && profileForm.city.$invalid)||
+                    (profileForm.city.$pristine && profileForm.city.$invalid) 
+                    )">
+                      Save
+                </button> 
+                </form> 
+     </ion-content>
+ </ion-view>
+
+
+    

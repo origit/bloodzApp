@@ -1,0 +1,488 @@
+/* Empty. Add your own CSS if you like */
+body{
+    font-size: 12px;
+}
+p{
+    font-size: 12px;
+}
+input
+{
+    height: 8px;
+}
+.welcome_padding{
+    padding-top: 20%;
+}
+.sildee{
+    margin-bottom: 20%;
+}
+.top_padding
+{
+    padding-top: 10%;
+}
+.button-assertive{
+    background: url('../img/logo/login-bg.jpg') no-repeat center !important; 
+}
+.bar-light{
+     background-color: #f7112c !important;
+     
+}
+.button:hover{
+    background-color:#b30000;
+    color: white!important;
+}
+.button-stable
+{
+    background-color:gainsboro !important;
+}
+padding_5
+{
+    padding: 10px;
+    
+}
+h6,h5{
+    color:white;
+}
+p{
+    color: #A9A9A9;
+    font-size: 12px;
+}
+.padding_pass
+{
+    padding: 10px;
+}
+a{
+    text-decoration: none;    
+}
+.padding_5
+{
+    padding: 5px;
+}
+.top_50
+{
+    padding-top:10px;
+}
+.button{
+    
+    color: white;    
+}
+.LifeShare-error
+{
+    color: white;
+}
+.LifeShare-error1
+{
+    color: #b30000;
+}
+
+ #login {    
+    z-index:1;
+    opacity: 0.9;
+    filter: alpha(opacity=40); 
+}
+ .login{     
+    background: url('../img/logo/login-bg.jpg') no-repeat center;  
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    width: 100%;
+    color:white;  
+}
+.tiles {
+    color: #fff;
+    font-family: serif;
+    background-color: #006BB2;
+    height: 100%;
+    width: 100%;
+}
+.square-tile {
+    float:left;
+    position: relative;
+    width: 48%; 
+    padding-bottom : 20%; /* = width for a 1:1 aspect ratio */
+    margin:1%;
+    overflow:hidden;
+}
+.welcome_design
+{
+    text-align: center;
+    color:#6d6767;
+}
+.welcm_align
+{
+    text-align:center;
+    margin-top:45%;
+    color:#6d6767;
+}
+.icon_size
+{
+    font-size:150px;
+    color: #f7112c;
+}
+.badge-tile {    
+  -webkit-border-radius: 10%;
+  -moz-border-radius: 10%;
+  border-radius: 25%;
+  position: absolute;
+  z-index: 9999;
+  bottom:5px;
+  right: 15px;
+  margin-top: 25%;
+  color:black;
+  background-color:#fafafa;    
+}
+.content-tile {
+    position:absolute;
+    height:100%; 
+    width:100%; 
+    bottom :4px;
+   
+}
+
+.table-tile{
+    display:table;
+    width:100%;
+    height:100%;
+    
+}
+.table-cell-tile{
+    display:table-cell;
+    vertical-align:middle;
+}
+
+/* For responsive images */
+.content-tile .rs-tile{
+    width:auto;
+    height:auto;
+    max-height:100%;
+    max-width:100%;
+}
+/* For responsive images as background */
+.bg-tile{
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-size:cover; /*you change this to "contain" if you don't want the images to be cropped */
+    color:#fff;
+}
+
+.float-button {
+    -webkit-border-radius: 40%;
+    -moz-border-radius: 40%;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 20px;
+    font-size: 30px;
+    background: #f7112c;
+    position: fixed;
+    bottom: 1%; /* Adjust to where you want it */
+    right: 12px; 
+    z-index: 9999;  
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4) !important;
+    background:#b30000;  
+    margin-bottom: 1%;
+}
+.float-button .height_fix {
+  margin-top: 100%;
+}
+
+.float-button .content {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  margin-top: -15px; /* Note, this must be half the font size */
+  color: #fff;
+}
+
+.float-button:hover{
+  -webkit-transform: translate3d(0, -1px, 0)  !important;
+  transform: translate3d(0, -1px, 0) !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4) !important;
+  background: darken(#ef7373, 10%)!important;
+}
+.Select-button {
+     border: 1px solid #ccc;
+    width: 100%;
+    height: 40px;
+    overflow: hidden; 
+    background: #fff no-repeat 90% 50%; 
+   
+}
+
+.Select-button1 {
+   width: 100%;
+    height: 40px;
+    border: none;
+    overflow: hidden; 
+    background: #fff no-repeat 90% 50%;  
+}
+.item-expand {
+  position: relative;
+  width: 100%;
+  max-height: 5px;
+  transition: max-height  0.10s ease-in ease-out;
+  overflow: hidden;
+}
+
+.item-expand.inactive:after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  height: 15px;
+  width: 100%;
+  display: block;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0, rgba(255, 255, 255, 0)),
+    color-stop(1, rgba(255, 255, 255, 1))
+  );
+  background-image: -o-linear-gradient(bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+  background-image: -moz-linear-gradient(bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+  background-image: -ms-linear-gradient(bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+}
+
+.item-expand.active {
+  max-height: 200px;
+  transition: max-height 0.3s ease-out;
+}
+
+.item-expand-footer {
+  color: red;
+  margin-top: 10px;
+}
+
+.item-expand-footer i {
+  margin-right: 10px;
+}
+.bar-transparent {
+    border: 0px !important;
+    border-bottom-color: transparent !important;
+    background-image: none !important;
+    border-bottom: none !important;
+}
+.ion-nav-buttons
+{
+    color:red;
+}
+.color_r
+{
+    color: #b30000;
+}
+.popover1{
+    hieght:10px;
+}
+
+.bg-tile{
+    background-color: #f7112c;
+}
+.about
+{
+    color:red;
+    padding-top:2%;
+    padding-bottom: 5%;
+}
+
+#details {    
+    z-index:1;
+    opacity: 0.8;
+    color: white;
+    filter: alpha(opacity=40);   
+    margin-top: 15%;
+}
+ .details{     
+    background: url('../img/logo/login-bg.jpg') no-repeat center;  
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    width: 100%;
+    color:white;
+ 
+}
+input
+{
+    width:100%;
+    height: 100%;
+}
+ .font
+{
+    font-size: 12px;
+   
+}
+.font_14
+{
+     font-size: 14px;
+}
+.icon_size
+{
+    font-size:150px;
+    color: #f7112c;
+}
+.icon_white
+{
+    font-size:150px;
+    color: white;
+}
+.color_w
+{
+    color: white;
+}
+.color_red
+{
+    color:#b30000;
+}
+.login_button
+{
+    border: 1px solid black;
+    color:red;
+}
+.font16{
+    font-size: 26px;
+    padding: 5px;
+}
+.logo
+{
+    background-color:white;
+    height: 200px;
+   
+}
+.font_18
+{
+    font-size: 18px;
+   
+}
+.menu_border
+{
+    border: 1px solid #b30000;
+}
+.menu_avatar
+{
+    border: 2px solid white;
+}
+.font_30
+{
+    font-size: 30px;
+}
+.font_24
+{
+    font-size: 24px;
+}
+.bar-assertive
+{
+    background: url('../img/logo/login-bg.jpg') no-repeat center !important;  
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+.assertive
+{
+   color:#b30000;
+}
+.badge-stable{
+    background-color: #d4d4d4!important;
+}
+.color_b
+{
+    color: black;
+}
+.color_b3
+{
+    color: #b30000;
+    padding: 10px;
+}
+.stable-bg
+{
+    background: url('../img/logo/login-bg.jpg') no-repeat center !important;  
+    background-repeat:no-repeat;
+    background-size:cover;
+}
+.font_20
+{
+    font-size: 20px;
+}
+
+/*******PROFILE ******/
+#profile-image {
+    display: block;
+    border-radius: 100px;
+    border: 1px solid #fff;
+    width: 100px;
+    height: 100px;
+    margin: 50px auto 0;
+    box-shadow: 0px 0px 4px rgba(0,0,0,1.0);
+}
+
+#content {
+  position: relative;
+  margin-top: 55px;
+  background-color: white;
+  box-shadow: 0px -1px 10px rgba(0,0,0,0.4);
+  padding-top: 170px;
+}
+
+#profile-info {
+  position: absolute;
+  top: -95px;
+  width: 100%;
+  z-index: 2;
+  text-align: center;
+}
+#profile-name {
+  color: #444;
+  font-size: 22px;
+}
+#profile-email {
+  color: #6d6767;
+  font-size: 17px;
+}
+
+#profile-edit{
+  font-size: 25px;
+  color: #b30000;
+  position: absolute;
+  left: 5px;
+}
+#profile-phone{
+  font-size: 16px;
+  color: #6d6767;
+}
+#profile-bloog-group{
+  font-size: 19px; 
+  position: absolute;
+  right: 20px;
+}
+#profile-bloog-group_left{
+  font-size: 19px; 
+  position: absolute;
+  left: 20px;
+}
+.home_ions
+{
+   
+    margin-right:15px;
+}
+
+.item-select select,.item-select select option{
+  left: 45%;
+}
+
+.item-assertive{
+    background-color:#b30000 !important;
+}
+.font_40
+{
+    font-size: 40px;
+}
+.font_grey
+{
+    color: gainsboro;
+}
+.checkbox
+{
+    margin-top: 15px;
+}

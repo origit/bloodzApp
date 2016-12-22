@@ -1,0 +1,102 @@
+<ion-view title="Search Donor" >
+    <ion-content>
+        <form name="searchForm" novalidate >
+            <div ng-if="showdiv">
+                <div class="list list-inset">
+                    <span class="input-label font">Blood Group<span class="color_r"> *</span></span>
+                    <select class="Select-button" ng-model="searchDonor.bg" name="bg" required>
+                        <option value="">Select</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                    </select> 
+                    <div class="LifeShare-error1" ng-show="searchForm.bg.$dirty && searchForm.bg.$invalid">
+                        <span ng-show="searchForm.bg.$error.required">
+                            <i class="ion-information-circled danger"></i>
+                            Blood Group is required
+                        </span><br/>
+                    </div> 
+                    
+                    <span class="input-label font">Country <span class="color_r">*</span></span>
+                     <select class="Select-button" name="country" ng-model="searchDonor.countryId" ng-change="onCountryChange()" required ng-options="countryItem.id as countryItem.name for countryItem in countryList">
+                        <option value="">Select</option>                       
+                    </select>                  
+                    <div class="LifeShare-error1" ng-show="searchForm.country.$dirty && searchForm.country.$invalid">
+                        <span ng-show="searchForm.country.$error.required">
+                            <i class="ion-information-circled danger"></i>
+                            Country is required
+                        </span>
+                    </div>
+                    
+                    <span class="input-label font">State <span class="color_r">*</span></span>
+                    <select name="state" ng-model="searchDonor.stateId" ng-disabled="!stateList" ng-change="onStateChange()"  ng-options="stateItem.id as stateItem.name for stateItem in stateList" class="Select-button" required >
+                        <option value="">Select</option>
+                   </select>
+                    <div class="LifeShare-error1" ng-show="searchForm.state.$dirty && searchForm.state.$invalid">
+                        <span ng-show="searchForm.state.$error.required">
+                            <i class="ion-information-circled danger"></i>
+                            State is required
+                        </span>
+                    </div>
+
+                    <span class="input-label font">City <span class="color_r">*</span></span>
+                    <select class="Select-button"  ng-disabled="!cityList" name="city" ng-model="searchDonor.cityId"   ng-options="cityItem.id as cityItem.name for cityItem in cityList" required>
+                           <option value="">Select</option>
+                    </select>
+                    <div class="LifeShare-error1" ng-show="searchDonor.city.$dirty && searchForm.city.$invalid">
+                        <span ng-show="searchForm.city.$error.required">
+                            <i class="ion-information-circled danger"></i>
+                            City is required
+                        </span>
+                    </div>
+
+                </div>
+                <center class="padding">
+                    <button class="button button-full button-assertive " ng-click="submit()"
+                            ng-disabled="((searchForm.city.$dirty && searchForm.city.$invalid)||
+                                          (searchForm.city.$pristine && searchForm.city.$invalid)||
+                                          (searchForm.area.$dirty && searchForm.area.$invalid)||
+                                          (searchForm.area.$pristine && searchForm.area.$invalid)||
+                                          (searchForm.country.$dirty && searchForm.country.$invalid)||
+                                          (searchForm.country.$pristine && searchForm.country.$invalid)||
+                                          (searchForm.bg.$dirty && searchForm.bg.$invalid)||
+                                          (searchForm.bg.$pristine && searchForm.bg.$invalid)||
+                                          (searchForm.state.$dirty && searchForm.state.$invalid)||
+                                          (searchForm.state.$pristine && searchForm.state.$invalid)
+                                        )"
+                            >
+                        Search
+                    </button>
+
+                </center>
+            </div>
+        </form>
+            
+        <div ng-if="!showdiv" class="card" >
+            <a class="button button-full button-assertive " ng-click="BackList()"  >
+                        Back
+             </a>
+            <ion-item ng-repeat="Item in DonorDetails" > 
+               <div class="list">
+                   <a class="item item-thumbnail-left item-text-wrap item-icon-right" >                      
+                       <img ng-src="{{Item.IMG_URL}}" alt="DONOR" class="col col-13"/>   
+                       <h2>{{Item.NAME}}</h2>
+                       <h3>Blood Group : <span class="color_b3 font_18"><strong>{{Item.BLOD_GRUP}}</strong></span></h3>
+                       <p>{{Item.AREA}} {{Item.CITY}}</p>
+                       <i class="icon ion-ios-telephone balanced font_40"  ng-click="callDonor({{Item.PH_NO}})"></i>
+                   </a>
+               </div>
+            </ion-item>
+            <br>  
+            <div ng-if='DonorDetails == null'>
+                <center> <h4 class="color_b3"> No records available.</h4></center>
+            </div>
+            
+        </div>
+        </ion-content>
+</ion-view>

@@ -1,0 +1,20 @@
+<ion-nav-view name="List Donors">
+    <ion-content>
+        <ion-refresher pulling-text="Pull to refresh..." on-refresh="doRefresh()">  </ion-refresher>
+        <div class="card list">
+            <ion-item ng-repeat="Item in mydonor_details">
+                <div class="row">
+                    <div class="col col-60">
+                        {{Item.NAME}}
+                    </DIV>
+                    <div class="col col-35">
+                        <h4 class="font color_r"><strong>{{Item.BLOD_GRUP}}</strong></h4>
+                    </div>
+                    <div class="col col-10">
+                        <a ng-click="callDonor({{Item.PH_NO}})"><i class="icon ion-ios-telephone balanced" style="font-size:34px"></i></a>
+                    </div>
+                </div>   
+            </ion-item>
+         </div>
+    </ion-content>
+</ion-nav-view>

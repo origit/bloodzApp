@@ -1,0 +1,25 @@
+<ion-view title="Blood Bank List">
+    <ion-content>  
+        <div class="card list">
+            <ion-item ng-repeat="Item in bloodBankList">
+                <div class="row padding">
+                    <div >
+                          <i class=" button-icon ion-home assertive padding font_40" style="margin-right:10px"></i> 
+                    </div>
+                    <div class="col col-60">
+                        {{Item.NAME}}
+                        <br/>
+                        <div class="row">
+                            <div class="col col-100">
+                                <h4 class="font" >{{Item.AREA}} ,{{Item.CITY}}</h4>
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="col col-10" >
+                        <a ng-click="callBloodBank({{Item.PH_NO}})"><i class="icon ion-ios-telephone balanced font_30"></i></a>
+                    </div>
+                </div>   
+            </ion-item>
+        </div>
+    </ion-content>
+</ion-view>

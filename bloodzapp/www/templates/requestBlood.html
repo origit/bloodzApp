@@ -1,0 +1,81 @@
+<ion-view title="Request Blood">
+    <ion-content>
+        <form name="requestForm" novalidate >
+                <div class="list list-inset">
+                    <span class="input-label font" >Blood Group<span style="color: red"> *</span></span>
+                    <select class="Select-button" ng-model="requestBlood.bg" name="bg" required>
+                        <option value="">Select</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                    </select> 
+                    <div class="LifeShare-error1" ng-show="requestForm.bg.$dirty && requestForm.bg.$invalid">
+                        <span ng-show="requestForm.bg.$error.required">
+                            <i class="ion-information-circled danger"></i>
+                            Blood Group is required
+                        </span><br/>
+                    </div> 
+                    
+                    <span class="input-label font" >Country <span style="color: red">*</span></span>
+                    <select class="Select-button" name="country" ng-model="requestBlood.countryId" ng-change="onCountryChange()" required ng-options="countryItem.id as countryItem.name for countryItem in countryList">
+                        <option value="">Select</option>                       
+                    </select> 
+                    <div class="LifeShare-error1" ng-show="requestForm.country.$dirty && requestForm.country.$invalid">
+                        <span ng-show="requestForm.country.$error.required">
+                            <i class="ion-information-circled danger"></i>
+                            Country is required
+                        </span>
+                    </div>
+                    
+                    <span class="input-label font" >State <span style="color: red">*</span></span>
+                    <select name="state" ng-model="requestBlood.stateId" ng-disabled="!stateList" ng-change="onStateChange()"  ng-options="stateItem.id as stateItem.name for stateItem in stateList" class="Select-button" required >
+                        <option value="">Select</option>
+                    </select>
+                    <div class="LifeShare-error1" ng-show="requestForm.state.$dirty && requestForm.state.$invalid">
+                        <span ng-show="requestForm.state.$error.required">
+                            <i class="ion-information-circled danger"></i>
+                            State is required
+                        </span>
+                    </div>
+
+                    <span class="input-label font" >City <span style="color: red">*</span></span>
+                    <select class="Select-button"  ng-disabled="!cityList" name="city" ng-model="requestBlood.cityId"   ng-options="cityItem.id as cityItem.name for cityItem in cityList" required>
+                           <option value="">Select</option>
+                    </select>
+                    <div class="LifeShare-error1" ng-show="requestForm.city.$dirty && requestForm.city.$invalid">
+                        <span ng-show="requestForm.city.$error.required">
+                            <i class="ion-information-circled danger"></i>
+                            City is required
+                        </span>
+                    </div>
+
+                </div>
+                <center class="padding">
+                    <button class="button button-full button-assertive " ng-click="submit()"
+                            ng-disabled="((requestForm.city.$dirty && requestForm.city.$invalid)||
+                                          (requestForm.city.$pristine && requestForm.city.$invalid)||
+                                          (requestForm.country.$dirty && requestForm.country.$invalid)||
+                                          (requestForm.country.$pristine && requestForm.country.$invalid)||
+                                          (requestForm.bg.$dirty && requestForm.bg.$invalid)||
+                                          (requestForm.bg.$pristine && requestForm.bg.$invalid)||
+                                          (requestForm.state.$dirty && requestForm.state.$invalid)||
+                                          (requestForm.state.$pristine && requestForm.state.$invalid)
+                                        )"
+                            >
+                        Request
+                    </button>
+
+                </center>
+        </form>
+        <br>
+        <div class="list list-inset">
+              <h5 class='assertive'> *Note: Our system selects 10 people randomly and Send a blood request mail.</h5> 
+        </div>
+     
+    </ion-content>
+</ion-view>

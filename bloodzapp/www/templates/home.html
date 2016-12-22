@@ -1,0 +1,74 @@
+<ion-view title="Dashboard" hide-back-button="true">
+    <ion-nav-buttons side="left">
+        <button menu-toggle="left" class="button button-icon icon ion-navicon">
+        </button>
+    </ion-nav-buttons>	
+    <ion-content class="has-header">
+    <div ng-if="NEW == 'NEW' ">
+         <div class="row responsive-sm" on-double-tap="onDoubleTap()"> 
+            <div class="col-50">
+                <div class="card" style="padding-bottom:0;margin-bottom:0;">
+                    <div class="item item-text-wrap item-icon-left">
+                        <i class="icon ion-information-circled assertive icon-top font_20" ></i>
+                        <p>
+                            <b class="font">Welcome to  BloodzApp!</b>
+                            <br/>
+                        <p class="font">
+                            Thank you for registering on BloodzApp.<br>
+                            Save Blood , Save life. <br>                            
+                            Double tap to hide this panel!
+                        </p>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+      
+    <div  class="card">
+        <ion-item>
+            <div class="item item-text-wrap">
+                    <i class="icon ion-waterdrop font_24 color_b3"></i>
+                    <a class="font_14 color_b" >Total Donors</a>
+                    <span class="badge badge-stable animated zoomIn" >{{TOTAL_DONORS}}</span>
+            </div>
+            <div class="item item-text-wrap">
+                    <i class="icon ion-medkit font_24 color_b3"></i>
+                    <a class="font_14 color_b" >Total Banks</a>
+                    <span class="badge badge-stable animated zoomIn">{{TOTAL_BANKS}}</span>
+             </div>
+             <div class="item item-text-wrap">
+                    <i class="icon ion-person-stalker font_24 color_b3" ></i>
+                    <a class="font_14 color_b">Total Users</a>
+                   <span class="badge badge-stable animated zoomIn" >{{TOTAL_USERS}}</span>
+             </div>
+        </ion-item>
+    </div>   
+        
+    <div class="card">
+        <div class="item item-divider item-assertive">
+            <center><strong> Blood Group Details</strong></center>
+        </div>
+        <div class="square-tile" ng-repeat="item in CITY_LIST" style="background-color:#d4d4d4">
+            <div class="content-tile">
+                <div class="table-tile">
+                    <div class="table-cell-tile text-center font_20" >  
+                        <center><span class="name_tile color_b3"><strong>{{ item.CITY_NAME}}</strong></span></center>
+                        <span class= "badge badge-tile" >{{ item.CITY_COUNT}}</span>
+                    </div>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+    </div><br><br>
+        
+    </ion-content>
+    <ion-footer>
+        <div class="float-button" id="floataddbutton">
+            <span class="height-fix">
+                <a href="#/app/searchDonor" class="content">
+                    <i class="icon ion-ios-search"></i>
+                </a>
+            </span>
+        </div>
+    </ion-footer>
+</ion-view>

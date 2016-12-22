@@ -1,0 +1,56 @@
+<ion-view>    
+    <ion-content>
+        <a href="#/login" class="padding_pass">
+            <i class="icon button-icon ion-ios-arrow-back button-left assertive"></i>
+        </a>
+        <div class="card padding">
+            <center>
+                <h5 class="color_b3 font_18">Email  Verification</h5>
+                <p class="font_14">Please enter a 6 digits code which was sent to your registered email address ({{EMAIL}}). </p>
+            </center>
+            <form name="verifyForm" novalidate="">
+                <div class="list list-inset"> 
+                    
+                    <label class="item item-input ">
+                        <input type="text" name="appcode" ng-pattern="/[0-9]+/" ng-model="verify.appcode" ng-minlength="6" ng-maxlength="6" placeholder="Enter Verify Code" required autofocus>
+                    </label>
+
+                    <div class="LifeShare-error1" ng-show="verifyForm.appcode.$dirty && verifyForm.appcode.$invalid">
+                        <span ng-show="verifyForm.appcode.$error.required">
+                            <i class="ion-information-circled danger"></i>
+                            Code is required.
+                        </span>                    
+                        <span ng-show="verifyForm.appcode.$error.maxlength">
+                            <i class="ion-information-circled danger"></i>
+                            Code number must not exceed 6 digits.
+                            <br/>
+                        </span>
+                        <span ng-show="verifyForm.appcode.$error.minlength">
+                            <i class="ion-information-circled danger"></i>
+                            Mobile number must be 6 digits.
+                            <br/>
+                        </span>
+                         <span ng-show="verifyForm.appcode.$error.pattern">
+                            <i class="ion-information-circled danger"></i>
+                             Only digits are allowed.
+                            <br/>
+                        </span>
+                    </div><br/>
+                    <button type="button" class="button button-block button-assertive"  ng-click="submit()"
+                        ng-disabled="(
+                            (verifyForm.appcode.$dirty && verifyForm.appcode.$invalid)||
+                            (verifyForm.appcode.$pristine && verifyForm.appcode.$invalid)
+                            )">
+                             Verify
+                    </button> 
+                </div>
+            </form>          
+                   
+        </div><a ng-click="Resend()" class="padding_pass pull-right">
+                <h5 class="assertive">
+                    <i class="button-icon ion-paper-airplane button-left assertive"></i>
+                    Resend
+                </h5>
+            </a>
+    </ion-content>
+</ion-view>

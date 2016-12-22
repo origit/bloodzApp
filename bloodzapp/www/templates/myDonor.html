@@ -1,0 +1,212 @@
+<ion-view title="My Donor">
+    <ion-nav-bar class="bar bar-assertive">
+        <ion-nav-buttons>
+            <button class="button button-icon ion-navicon assertive" menu-toggle="left"></button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    
+    <ion-tabs class="tabs-icon-top tabs-stable">
+        <!-- Add Donor Tab -->
+        <ion-tab title="Add Donor" icon="icon ion-ios-personadd assertive" >
+            <ion-nav-view name="Add Donor">
+                <ion-content>
+                    <form name="addDonor_form" novalidate>
+                        <div ng-if="basicdiv">
+                            <div class="list list-inset">
+                                <span class="input-label font">Name <span class="color_r">*</span></span>
+                                <label class="item item-input">
+                                    <input type="text" name="username" ng-model="addDonor.username" ng-trim="true" ng-pattern="/^[a-zA-Z\s]+$/i" ng-minlength="3"  ng-maxlength="40" placeholder="Enter name" required>
+                                </label>
+                                <div class="LifeShare-error1" ng-show="addDonor_form.username.$dirty && addDonor_form.username.$invalid">
+                                    <span ng-show="addDonor_form.username.$error.required">
+                                       <i class="ion-information-circled assertive"></i>
+                                       Name is required.
+                                    </span>                       
+                                    <span ng-show="addDonor_form.username.$error.pattern">
+                                        <i class="ion-information-circled assertive"></i>
+                                        Only Alphabets are allowed. <br/>
+                                    </span> 
+                                    <span ng-show="addDonor_form.username.$error.minlength">
+                                        <i class="ion-information-circled assertive"></i>
+                                        Name must be atleast 3 characters. 
+                                    </span>
+                                    <span ng-show="addDonor_form.username.$error.maxlength">
+                                        <i class="ion-information-circled assertive"></i>
+                                        Name must not exceed 40 characters.
+                                    </span>   
+                                </div> 
+
+                                <span class="input-label font">Email <span class="color_r">*</span></span>
+                                <label class="item item-input">
+                                    <input type="email" name="email" ng-model="addDonor.email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"  placeholder="Enter email" disallowSpaces required>
+                                </label>
+                                <div class="LifeShare-error1" ng-show="addDonor_form.email.$dirty && addDonor_form.email.$invalid">
+                                    <span ng-show="addDonor_form.email.$error.required">
+                                        <i class="ion-information-circled danger"></i>
+                                        Email is required.
+                                    </span>
+                                    <span ng-show="addDonor_form.email.$error.pattern">
+                                        <i class="ion-information-circled danger"></i>
+                                       Invalid Email.
+                                    </span>
+                                </div> 
+
+                                <span class="input-label font">Mobile No <span class="color_r">*</span></span>
+                                <label class="item item-input">
+                                    <input type="tel" name="ph_no" ng-model="addDonor.ph_no" ng-pattern="/^\d+$/" ng-minlength="8" ng-maxlength="15" placeholder="Enter mobile no " required>
+                                </label>
+                                <div class="LifeShare-error1" ng-show="addDonor_form.ph_no.$dirty && addDonor_form.ph_no.$invalid">
+                                    <span ng-show="addDonor_form.ph_no.$error.required">
+                                        <i class="ion-information-circled danger"></i>
+                                        Mobile number required.
+                                    </span>
+                                    <span ng-show="addDonor_form.ph_no.$error.maxlength">
+                                        <i class="ion-information-circled danger"></i>
+                                         Mobile number must not exceed 15 digits.
+                                         <br/>
+                                    </span>
+                                    <span ng-show="addDonor_form.ph_no.$error.minlength">
+                                        <i class="ion-information-circled danger"></i>
+                                        Mobile number must be 8 digits.
+                                        <br/>
+                                    </span>
+                                    <span ng-show="addDonor_form.ph_no.$error.pattern">
+                                        <i class="ion-information-circled danger"></i>
+                                        Invalid Number    
+                                        <br/>
+                                    </span>
+                                </div>
+
+                                <span class="input-label" style="font-size: 12px">Blood Group <span class="color_r">*</span></span>
+                                <select class="Select-button" ng-model="addDonor.bg" name="bg" required>
+                                    <option value="">Select</option>
+                                    <option value="A+">A+</option>
+                                    <option value="A-">A-</option>
+                                    <option value="B+">B+</option>
+                                    <option value="B-">B-</option>
+                                    <option value="AB+">AB+</option>
+                                    <option value="AB-">AB-</option>
+                                    <option value="O+">O+</option>
+                                    <option value="O-">O-</option>
+                                </select> 
+                                <div class="LifeShare-error1" ng-show="addDonor_form.bg.$dirty && addDonor_form.bg.$invalid">
+                                    <span ng-show="addDonor_form.bg.$error.required">
+                                        <i class="ion-information-circled danger"></i>
+                                        Blood Group is required
+                                    </span>
+                                </div>
+
+                                <span class="input-label" style="font-size: 12px">Gender <span style="color: red">*</span></span>
+                                <select class="Select-button" ng-model="addDonor.gender" name="gender" required>
+                                    <option value="">Select</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Other">Others</option>
+                                </select>
+                                <div class="LifeShare-error1" ng-show="addDonor_form.gender.$dirty && addDonor_form.gender.$invalid">
+                                    <span ng-show="addDonor_form.gender.$error.required">
+                                        <i class="ion-information-circled danger"></i>
+                                        Gender is required
+                                    </span>
+                                </div>
+
+                                <button class="button button-full button-assertive" ng-click="AddressBtn()"
+                                         ng-disabled="((addDonor_form.gender.$dirty && addDonor_form.gender.$invalid)||
+                                                        (addDonor_form.gender.$pristine && addDonor_form.gender.$invalid)||
+                                                        (addDonor_form.ph_no.$dirty && addDonor_form.ph_no.$invalid)||
+                                                        (addDonor_form.ph_no.$pristine && addDonor_form.ph_no.$invalid)||
+                                                        (addDonor_form.bg.$dirty && addDonor_form.bg.$invalid)||
+                                                        (addDonor_form.bg.$pristine && addDonor_form.bg.$invalid)||
+                                                        (addDonor_form.email.$dirty && addDonor_form.email.$invalid)||
+                                                        (addDonor_form.email.$pristine && addDonor_form.email.$invalid)||
+                                                        (addDonor_form.username.$dirty && addDonor_form.username.$invalid)||
+                                                        (addDonor_form.username.$pristine && addDonor_form.username.$invalid)
+                                                        )">             
+                                                Next
+                                </button>
+                            </div>
+                        </div>
+                        <div ng-if="addressdiv">
+                            <div class="list list-inset">
+                                <span class="input-label" style="font-size: 12px">Country <span class="color_r">*</span></span>
+                                <select class="Select-button" name="country" ng-model="addDonor.countryId" ng-change="onCountryChange()" required ng-options="countryItem.id as countryItem.name for countryItem in countryList">
+                                    <option value="">Select</option>                       
+                                </select>
+                                <div class="LifeShare-error1" ng-show="addDonor_form.country.$dirty && addDonor_form.country.$invalid">
+                                    <span ng-show="addDonor_form.country.$error.required">
+                                        <i class="ion-information-circled danger"></i>
+                                        Country is required
+                                    </span>
+                                </div>
+
+                                 <span class="input-label" style="font-size: 12px">State <span class="color_r">*</span></span>
+                                    <select name="state" ng-model="addDonor.stateId" ng-disabled="!stateList" ng-change="onStateChange()"  ng-options="stateItem.id as stateItem.name for stateItem in stateList" class="Select-button" required >
+                                        <option value="">Select</option>
+                                    </select> 
+                                    <div class="LifeShare-error1" ng-show="addDonor_form.state.$dirty && addDonor_form.state.$invalid">
+                                        <span ng-show="addDonor_form.state.$error.required">
+                                            <i class="ion-information-circled danger"></i>
+                                            State is required
+                                        </span>
+                                    </div>
+
+                                <span class="input-label font">City <span class="color_r">*</span></span>
+                                <select class="Select-button"  ng-disabled="!cityList" name="city" ng-model="addDonor.cityId"   ng-options="cityItem.id as cityItem.name for cityItem in cityList" required>
+                                        <option value="">Select</option>
+                                 </select>
+                                <div class="LifeShare-error1" ng-show="addDonor_form.city.$dirty && addDonor_form.city.$invalid">
+                                        <span ng-show="addDonor_form.city.$error.required">
+                                            <i class="ion-information-circled danger"></i>
+                                            City is required
+                                        </span>
+                                </div>
+                                <br/><br/>
+                                <center>
+                                    <button class="button button-full button-assertive" ng-click="donorsubmit()"
+                                             ng-disabled="((addDonor_form.country.$dirty && addDonor_form.country.$invalid)||
+                                                            (addDonor_form.country.$pristine && addDonor_form.country.$invalid)||
+                                                            (addDonor_form.state.$dirty && addDonor_form.state.$invalid)||
+                                                            (addDonor_form.state.$pristine && addDonor_form.state.$invalid)||
+                                                            (addDonor_form.city.$dirty && addDonor_form.city.$invalid)||
+                                                            (addDonor_form.city.$pristine && addDonor_form.city.$invalid)  
+                                                            )">             
+                                                    Add
+                                    </button>
+                                </center>
+                                <button class="button button-full button-assertive" ng-click="ShowParentDiv()">             
+                                                    Back
+                                    </button>
+                                
+                                
+                            </div>
+                        </div>
+                    </form>
+                </ion-content>
+            </ion-nav-view>
+        </ion-tab>
+
+        <!-- List Donors Tab -->
+        <ion-tab title="List Donors" icon="icon ion-ios-people assertive" >
+            <ion-nav-view name="List Donors">
+                <ion-content>
+                    <ion-refresher pulling-text="Pull to refresh..." on-refresh="listmydonors()">  </ion-refresher>
+                    <div ng-if="mydonor_details != null" class="card list">
+                        <ion-item ng-repeat="Item in mydonor_details">
+                            <div class="list">
+                                <a class="item item-thumbnail-left item-icon-right" >
+                                    <img ng-src="{{Item.IMG_URL}}">
+                                    <h2 class="font_20">{{Item.NAME}}</h2>
+                                    <h3 class="font_20">Blood Group : <span class="color_b3 font_18"><strong>{{Item.BLOD_GRUP}}</strong></span></h3>
+                                    <h4 class="font_20"  >{{Item.PH_NO}}</h4>
+                                </a>
+                            </div>
+                        </ion-item>
+                     </div>
+                    <div class="card" ng-if="mydonor_details == null">
+                        <center> <h4 class="color_b3"> No records available.</h4></center>
+                    </div>
+                </ion-content>
+            </ion-nav-view>
+        </ion-tab>
+    </ion-tabs>
+</ion-view>
